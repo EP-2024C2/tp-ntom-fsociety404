@@ -7,7 +7,7 @@ const addFabricante = async (req, res) => {
         const resultado = await Fabricante.create({
             nombre: fabricante.nombre,
             direccion: fabricante.direccion,
-            nroContacto: fabricante.nroContacto,
+            numeroContacto: fabricante.numeroContacto,
             pathImgPerfil: fabricante.pathImgPerfil,
         })
         res.status(201).send(resultado)
@@ -23,7 +23,7 @@ const getFabricante = async (req, res) => {
 
     const fabricante = await Fabricante.findByPk(req.params.id);
     if (!fabricante) {
-        return res.status(404).json({ message: 'Fabricante no encontrado' });
+        return res.status(404).json({ error: 'Fabricante no encontrado' });
     }
     res.status(200).json(fabricante);
 }
@@ -36,7 +36,7 @@ const getAllFabricante = async (req, res) => {
         const fabricantes = await Fabricante.findAll();
         res.status(200).json(fabricantes);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error : error.message });
     }
 }
 
@@ -58,7 +58,7 @@ const deleteFabricante = async (req, res) => {
 const updateFabricante = async (req, res) => {
     const fabricante = await Fabricante.findByPk(req.params.id);
     if (!fabricante) {
-        return res.status(404).json({ message: 'Fabricante no encontrado' });
+        return res.status(404).json({ error: 'Fabricante no encontrado' });
     }
 
     const fabricanteActualizado = req.body;
@@ -66,13 +66,14 @@ const updateFabricante = async (req, res) => {
         const resultado = await Fabricante.update({
             nombre: fabricanteActualizado.nombre,
             direccion: fabricanteActualizado.direccion,
-            nroContacto: fabricanteActualizado.nroContacto,
+            numeroContacto: fabricanteActualizado.numeroContacto,
             pathImgPerfil: fabricanteActualizado.pathImgPerfil,
         }, {where: {id: req.params.id}})
-        res.status(200).send(resultado)
+        const fabricanteModificado = await Fabricante.findByPk(req.params.id);
+        res.status(200).json(fabricanteModificado)
 
     } catch (error) {
-        res.status(500).json({message : `error al intentar crear: "${error}"`})
+        res.status(500).json({error : `error al intentar crear: "${error}"`})
     }
 
 }
