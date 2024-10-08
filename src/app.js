@@ -17,3 +17,5 @@ app.listen(PORT, () => {
     console.log(`Iniciando servicio en puerto ${PORT}`)
 })
 
+
+console.log("prueba")
