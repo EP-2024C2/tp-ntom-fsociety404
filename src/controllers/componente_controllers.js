@@ -14,7 +14,7 @@ const getAllComponente = async (req, res) => {
 const getComponente = async (req, res) => {
   const componente = await Componente.findByPk(req.params.id);
     if (!componente) {
-        return res.status(404).json({ error: 'Fabricante no encontrado' });
+        return res.status(404).json({ error: 'Componente no encontrado' });
     }
     res.status(200).json(componente);
 
@@ -31,7 +31,7 @@ const addComponente = async (req, res) => {
         res.status(201).send(resultado)
 
     } catch (error) {
-        res.status(500).json({message : `error al intentar crear: "${error}"`})
+        res.status(500).json({message : `error al intentar crear Componente: "${error}"`})
     }
 
 }
@@ -40,7 +40,7 @@ const addComponente = async (req, res) => {
 const updateComponente = async (req, res) => {
   const componente = await Componente.findByPk(req.params.id);
     if (!componente) {
-        return res.status(404).json({ error: 'componente no encontrado' });
+        return res.status(404).json({ error: 'Componente no encontrado' });
     }
 
     const componenteActualizado = req.body;
@@ -53,10 +53,8 @@ const updateComponente = async (req, res) => {
         res.status(200).json(componenteModificado)
 
     } catch (error) {
-        res.status(500).json({error : `error al intentar crear: "${error}"`})
+        res.status(500).json({error : `error al intentar actualizar Componente: "${error}"`})
     }
-
-
 }
 
 //borrar un componente en particular
