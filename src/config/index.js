@@ -1,24 +1,17 @@
 const {Sequelize} = require("sequelize")
-// const process = require('process')
-// const env = process.env.NODE_ENV || 'development';
-// const config = require(__dirname + '/../config')[env];
+const process = require('process')
+const configFile = process.env.CONFIG_FILE || __dirname + '/../config/config.json'
+const env = process.env.NODE_ENV || 'development';
+let config = require(configFile);
+if (!config[env]) {
+    throw new Error("error al cargar archivo de configuración");
+    return
+}
+
+config = config[env]
 
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: '../data/db.sqlite'
-})
+const sequelize = new Sequelize(config)
 
-
-// let sequelize;
-// if (config.use_env_variable) {
-//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-// } else {
-//   sequelize = new Sequelize(
-//     config.database,
-//     config.username,
-//     config.password,
-//     config);
-// }
 
 module.exports = sequelize
