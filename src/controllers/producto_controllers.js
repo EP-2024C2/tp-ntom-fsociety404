@@ -1,4 +1,4 @@
-const { Producto: Producto } = require('../models')
+const { Producto, Fabricante, Componente } = require('../models')
 
 //obtener tods los productos
 const getAllProducto = async (req, res) => {
@@ -71,6 +71,104 @@ const deleteProducto = async (req, res) => {
   }
 }
 
-//obtener todos los productos de un producto
+// asigna fabricante a un producto
+const addFabricantes = async (req, res) => {
+    const idProducto = req.params.id
+    const producto = await Producto.findByPk(idProducto);
+    if (!producto) {
+        return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+    const fabricantes = req.body;
+    if(!Array.isArray(fabricantes)) {
+        return res.status(500).json({message : `se espera una lista de fabricantes`})
+    }
+    for (const i in fabricantes) {
+        const fabricante = await Fabricante.findByPk(fabricantes[i].id)
+        if (!fabricante) {
+            return res.status(404).json({ message: `no se encontró un fabricante con el id '${fabricantes[i].id}'` });
+        }
+        fabricantes[i] = fabricante
+    }
 
-module.exports = {getAllProducto, getProducto, addProducto, updateProducto, deleteProducto}
+
+    try {
+        producto.addFabricantes(fabricantes)
+    } catch(err) {
+        const msg = `error al asignar fabricantes a un producto: '${err}'`
+        console.error(msg)
+        return res.status(500).json({message : msg})
+    }
+
+
+    res.status(200).json({ message: 'OK' });
+  }
+
+// obtiene los fabricantes de un producto
+const getFabricantes = async (req, res) => {
+    const idProducto = req.params.id
+    const producto = await Producto.findByPk(idProducto, {
+        include: {model: Fabricante, as: "Fabricantes"}
+    });
+    if (!producto) {
+        return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+
+    res.status(200).json(producto);
+  }
+
+
+// asigna componentes a un producto
+const addComponentes = async (req, res) => {
+    const idProducto = req.params.id
+    const producto = await Producto.findByPk(idProducto);
+    if (!producto) {
+        return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+    const componentes = req.body;
+    if(!Array.isArray(componentes)) {
+        return res.status(500).json({message : `se espera una lista de componentes`})
+    }
+    for (const i in componentes) {
+        const componente = await Componente.findByPk(componentes[i].id)
+        if (!componente) {
+            return res.status(404).json({ message: `no se encontró un componente con el id '${componentes[i].id}'` });
+        }
+        componentes[i] = componente
+    }
+
+    try {
+        producto.addComponentes(componentes)
+    } catch(err) {
+        const msg = `error al asignar componentes a un producto: '${err}'`
+        console.error(msg)
+        return res.status(500).json({message : msg})
+    }
+
+    res.status(200).json({ message: 'OK' });
+  }
+
+// obtiene los componentes de un producto
+const getComponentes = async (req, res) => {
+const idProducto = req.params.id
+const producto = await Producto.findByPk(idProducto, {
+    include: {model: Componente, as: "Componentes"}
+});
+if (!producto) {
+    return res.status(404).json({ message: 'Producto no encontrado' });
+}
+
+res.status(200).json(producto);
+}
+
+module.exports = {
+    getAllProducto,
+    getProducto,
+    addProducto,
+    updateProducto,
+    deleteProducto,
+    addFabricantes,
+    getFabricantes,
+    addComponentes,
+    getComponentes,
+
+}

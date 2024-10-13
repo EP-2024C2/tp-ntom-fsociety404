@@ -1,4 +1,4 @@
-const { Componente } = require('../models')
+const { Componente, Producto } = require('../models')
 
 //obtener tods los componentes
 const getAllComponente = async (req, res) => {
@@ -71,6 +71,18 @@ const deleteComponente = async (req, res) => {
   }
 }
 
-//obtener todos los productos de un componente
 
-module.exports = {getAllComponente, getComponente, addComponente, updateComponente, deleteComponente}
+// obtiene los productos de un componente
+const getProductos = async (req, res) => {
+    const idComponente = req.params.id
+    const componente = await Componente.findByPk(idComponente, {
+        include: {model: Producto, as: "Productos"}
+    });
+    if (!componente) {
+        return res.status(404).json({ message: 'Componente no encontrado' });
+    }
+
+    res.status(200).json(componente);
+}
+
+module.exports = {getAllComponente, getComponente, addComponente, updateComponente, deleteComponente, getProductos}
