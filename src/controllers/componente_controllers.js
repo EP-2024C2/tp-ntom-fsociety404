@@ -12,12 +12,8 @@ const getAllComponente = async (req, res) => {
 
 //obtener componentes por id
 const getComponente = async (req, res) => {
-  const componente = await Componente.findByPk(req.params.id);
-    if (!componente) {
-        return res.status(404).json({ error: 'Componente no encontrado' });
-    }
+  const componente = req.modelo || await Componente.findByPk(req.params.id);
     res.status(200).json(componente);
-
 }
 
 //crear un componente
@@ -38,11 +34,6 @@ const addComponente = async (req, res) => {
 
 //modificar los datos de un componente en particular
 const updateComponente = async (req, res) => {
-  const componente = await Componente.findByPk(req.params.id);
-    if (!componente) {
-        return res.status(404).json({ error: 'Componente no encontrado' });
-    }
-
     const componenteActualizado = req.body;
     try {
         const resultado = await Componente.update({
@@ -59,10 +50,7 @@ const updateComponente = async (req, res) => {
 
 //borrar un componente en particular
 const deleteComponente = async (req, res) => {
-  const componente = await Componente.findByPk(req.params.id);
-  if (!componente) {
-      return res.status(404).json({ message: 'Componente no encontrado' });
-  }
+  const componente = req.modelo || await Componente.findByPk(req.params.id);
   try {
       await componente.destroy({where: {id: req.params.id}});
       res.status(200).json({ message: 'OK' });
@@ -71,17 +59,12 @@ const deleteComponente = async (req, res) => {
   }
 }
 
-
 // obtiene los productos de un componente
 const getProductos = async (req, res) => {
     const idComponente = req.params.id
     const componente = await Componente.findByPk(idComponente, {
         include: {model: Producto, as: "Productos"}
     });
-    if (!componente) {
-        return res.status(404).json({ message: 'Componente no encontrado' });
-    }
-
     res.status(200).json(componente);
 }
 

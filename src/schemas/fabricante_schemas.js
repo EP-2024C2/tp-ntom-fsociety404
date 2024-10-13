@@ -15,7 +15,7 @@ const fabricanteSchema = Joi.object().keys({
         "string.pattern.base":"El campo solo debe contener letras, números, espacios y los caracteres ., ",
         "any.required": "El campo descripcion es requerido"
     }),
-    numeroContacto: Joi.number().trim().required().messages({
+    numeroContacto: Joi.number().required().messages({
         "number.integer": "El campo numeroContacto debe ser un número entero",
         "any.required": "El campo numeroContacto es requerido"
     }),

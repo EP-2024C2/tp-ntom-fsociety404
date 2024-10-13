@@ -20,11 +20,7 @@ const addFabricante = async (req, res) => {
 
 // obtiene los datos de un fabricante
 const getFabricante = async (req, res) => {
-
-    const fabricante = await Fabricante.findByPk(req.params.id);
-    if (!fabricante) {
-        return res.status(404).json({ error: 'Fabricante no encontrado' });
-    }
+    const fabricante = req.modelo || await Fabricante.findByPk(req.params.id);
     res.status(200).json(fabricante);
 }
 
@@ -42,10 +38,6 @@ const getAllFabricante = async (req, res) => {
 
 // permite eliminar un fabricante
 const deleteFabricante = async (req, res) => {
-    const fabricante = await Fabricante.findByPk(req.params.id);
-    if (!fabricante) {
-        return res.status(404).json({ message: 'Fabricante no encontrado' });
-    }
     try {
         await Fabricante.destroy({where: {id: req.params.id}});
         res.status(200).json({ message: 'OK' });
@@ -56,11 +48,6 @@ const deleteFabricante = async (req, res) => {
 
 // permite modificar un fabricante
 const updateFabricante = async (req, res) => {
-    const fabricante = await Fabricante.findByPk(req.params.id);
-    if (!fabricante) {
-        return res.status(404).json({ error: 'Fabricante no encontrado' });
-    }
-
     const fabricanteActualizado = req.body;
     try {
         const resultado = await Fabricante.update({
@@ -84,10 +71,6 @@ const getProductos = async (req, res) => {
     const fabricante = await Fabricante.findByPk(idFabricante, {
         include: {model: Producto, as: "Productos"}
     });
-    if (!fabricante) {
-        return res.status(404).json({ message: 'Fabricante no encontrado' });
-    }
-
     res.status(200).json(fabricante);
 }
 

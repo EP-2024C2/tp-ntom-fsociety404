@@ -15,7 +15,7 @@ const productoSchema = Joi.object().keys({
         "string.pattern.base": "El campo solo debe contener letras, números, espacios y los caracteres ., ",
         "any.required": "El campo descripcion es requerido",
     }),
-	precio: Joi.number().trim().required().messages({
+	precio: Joi.number().required().messages({
 		"number.base": "El campo precio debe ser un número",
 		"any.required": "El campo precio es requerido"
 	}),
