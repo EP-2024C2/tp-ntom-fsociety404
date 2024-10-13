@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "TP",
     "collectionId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
-    "dateExported": "2024-10-12T17:48:07.067Z",
+    "dateExported": "2024-10-13T21:33:00.259Z",
     "version": "1.2",
     "folders": [
         {
@@ -80,7 +80,7 @@
             "_id": "0e86ae0c-3786-497f-8602-4eca4924e1a1",
             "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
             "containerId": "7e72e58c-b924-4c08-9126-0a51489c877a",
-            "name": "/fabricantes/id",
+            "name": "/componentes/id",
             "url": "http://127.0.0.1:3000/componentes/1",
             "method": "GET",
             "sortNum": 20000,
@@ -101,6 +101,30 @@
             "headers": []
         },
         {
+            "_id": "9a8769fa-7865-4edf-a1ef-94a5a291cb11",
+            "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
+            "containerId": "721efed2-5cd2-4e1c-aa3f-ba8bf86ef3e6",
+            "name": "/fabricantes/:id/productos",
+            "url": "http://127.0.0.1:3000/fabricantes/1/productos",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-10-13T21:26:41.064Z",
+            "modified": "2024-10-13T21:27:00.917Z",
+            "headers": []
+        },
+        {
+            "_id": "4ffe586e-8d4a-447d-88f9-899550852aef",
+            "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
+            "containerId": "7e72e58c-b924-4c08-9126-0a51489c877a",
+            "name": "/componentes/:id/productos",
+            "url": "http://127.0.0.1:3000/componentes/1/productos",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-10-13T21:31:07.564Z",
+            "modified": "2024-10-13T21:31:25.383Z",
+            "headers": []
+        },
+        {
             "_id": "db5a1f70-7bf8-4694-82be-b1b2283350b1",
             "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
             "containerId": "721efed2-5cd2-4e1c-aa3f-ba8bf86ef3e6",
@@ -109,11 +133,11 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-10-12T16:56:45.514Z",
-            "modified": "2024-10-12T17:10:00.227Z",
+            "modified": "2024-10-13T20:23:54.690Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Fabricante 1\",\n  \"direccion\": \"una dirección\",\n  \"numeroContacto\": 1122334455,\n  \"pathImgPerfil\": \"http://example.com/img/fabricante-1\"\n}",
+                "raw": "{\n  \"nombre\": \"Fabricante 4\",\n  \"direccion\": \"una dirección\",\n  \"numeroContacto\": 1122334455,\n  \"pathImgPerfil\": \"http://example.com/img/fabricante-4\"\n}",
                 "form": []
             }
         },
@@ -121,16 +145,16 @@
             "_id": "0369184a-0f51-40c3-a103-a1197e04cc46",
             "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
             "containerId": "7e72e58c-b924-4c08-9126-0a51489c877a",
-            "name": "/fabricantes",
+            "name": "/componentes",
             "url": "http://127.0.0.1:3000/componentes",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-10-12T17:17:38.439Z",
-            "modified": "2024-10-12T17:21:06.640Z",
+            "modified": "2024-10-13T20:25:10.392Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Componente 2\",\n  \"descripcion\": \"otro componente importante\"\n}",
+                "raw": "{\n  \"nombre\": \"Componente 6\",\n  \"descripcion\": \"otroun componente\"\n}",
                 "form": []
             }
         },
@@ -143,11 +167,11 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-10-12T17:24:37.915Z",
-            "modified": "2024-10-12T17:47:00.282Z",
+            "modified": "2024-10-13T20:25:53.595Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Producto 2\",\n  \"descripcion\": \"Otro producto\",\n  \"precio\": 1.23,\n  \"pathImg\": \"http://example.com/img/producto-1\"\n}",
+                "raw": "{\n  \"nombre\": \"Producto 1\",\n  \"descripcion\": \"un  producto\",\n  \"precio\": 1.23,\n  \"pathImg\": \"http://example.com/img/producto-1\"\n}",
                 "form": []
             }
         },
@@ -172,7 +196,7 @@
             "_id": "2ba08134-0568-407b-b2c5-59c00db79f16",
             "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
             "containerId": "7e72e58c-b924-4c08-9126-0a51489c877a",
-            "name": "/fabricantes/id",
+            "name": "/componentes/id",
             "url": "http://127.0.0.1:3000/componentes/2",
             "method": "PUT",
             "sortNum": 50000,
@@ -218,7 +242,7 @@
             "_id": "56a9c8f0-b357-4fba-841c-0703c8157517",
             "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
             "containerId": "7e72e58c-b924-4c08-9126-0a51489c877a",
-            "name": "/fabricantes/id",
+            "name": "/componentes/id",
             "url": "http://127.0.0.1:3000/componentes/1",
             "method": "DELETE",
             "sortNum": 60000,
@@ -237,7 +261,65 @@
             "created": "2024-10-12T17:24:37.916Z",
             "modified": "2024-10-12T17:29:26.001Z",
             "headers": []
+        },
+        {
+            "_id": "d1f3b289-c5a3-413c-9660-b05ba3ec3588",
+            "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
+            "containerId": "90cc7406-c422-4665-901c-ef2c15438476",
+            "name": "productos/:id/fabricantes",
+            "url": "http://127.0.0.1:3000/productos/2/fabricantes",
+            "method": "GET",
+            "sortNum": 65000,
+            "created": "2024-10-13T21:02:17.343Z",
+            "modified": "2024-10-13T21:02:29.248Z",
+            "headers": []
+        },
+        {
+            "_id": "5b95a9f6-3bc9-489b-8c3a-5671e9edbea0",
+            "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
+            "containerId": "90cc7406-c422-4665-901c-ef2c15438476",
+            "name": "/productos/:id/fabricantes",
+            "url": "http://127.0.0.1:3000/productos/3/fabricantes",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-10-13T20:18:55.170Z",
+            "modified": "2024-10-13T21:27:43.199Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "[ \n  {\n    \"id\": 1\n  },\n  {\n    \"id\": 3\n  }\n]\n\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "9925f6c9-42e9-45e4-8acb-da0a5ac5d8a8",
+            "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
+            "containerId": "90cc7406-c422-4665-901c-ef2c15438476",
+            "name": "productos/:id/componentes",
+            "url": "http://127.0.0.1:3000/productos/2/componentes",
+            "method": "GET",
+            "sortNum": 75000,
+            "created": "2024-10-13T21:17:25.858Z",
+            "modified": "2024-10-13T21:17:49.272Z",
+            "headers": []
+        },
+        {
+            "_id": "dc3806c2-34a0-4269-9671-15debcffe685",
+            "colId": "d4fcaf93-b60b-4806-bb5e-cc6be6c01a5b",
+            "containerId": "90cc7406-c422-4665-901c-ef2c15438476",
+            "name": "/productos/:id/componentes",
+            "url": "http://127.0.0.1:3000/productos/2/componentes",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-10-13T21:16:56.020Z",
+            "modified": "2024-10-13T21:22:03.423Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "[ \n  {\n    \"id\": 1\n  },\n  {\n    \"id\": 2\n  }\n]\n\n",
+                "form": []
+            }
         }
     ],
-    "ref": "Wb3LOOwzQoVtcyEb__8zpxHzudln8RL2WkrV_ipuAbkD3dtordzOrTfi5jqCb9ZlTT15f1JYbk7QJl8v9Z3Qow"
+    "ref": "Wb3LOOwzQoVtcyEb__8zp8Re6OYrc_ks8-0r8tol4udpHsDCv_IIY4UcBdOhYvLtJtcxocN9oWnFTL4Hv1jdzQ"
 }

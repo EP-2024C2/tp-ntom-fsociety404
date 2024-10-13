@@ -1,4 +1,4 @@
-const { Fabricante } = require('../models')
+const { Fabricante, Producto } = require('../models')
 
 // permite crear un fabricante
 const addFabricante = async (req, res) => {
@@ -78,7 +78,21 @@ const updateFabricante = async (req, res) => {
 
 }
 
+// obtiene los productos de un fabricante
+const getProductos = async (req, res) => {
+    const idFabricante = req.params.id
+    const fabricante = await Fabricante.findByPk(idFabricante, {
+        include: {model: Producto, as: "Productos"}
+    });
+    if (!fabricante) {
+        return res.status(404).json({ message: 'Fabricante no encontrado' });
+    }
 
-module.exports = { addFabricante, getFabricante, getAllFabricante, deleteFabricante, updateFabricante }
+    res.status(200).json(fabricante);
+}
+
+
+
+module.exports = { addFabricante, getFabricante, getAllFabricante, deleteFabricante, updateFabricante, getProductos }
 
 
