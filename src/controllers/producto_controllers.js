@@ -13,7 +13,7 @@ const getAllProducto = async (req, res) => {
 //obtener productos por id
 const getProducto = async (req, res) => {
     const producto = req.modelo || await Producto.findByPk(req.params.id);
-    
+
     res.status(200).json(producto);
 
 }
@@ -63,6 +63,8 @@ const deleteProducto = async (req, res) => {
 
 // asigna fabricante a un producto
 const addFabricantes = async (req, res) => {
+    const producto = req.modelo || await Producto.findByPk(req.params.id);
+
     const fabricantes = req.body;
     if (!Array.isArray(fabricantes)) {
         return res.status(500).json({ message: `se espera una lista de fabricantes` })
@@ -101,11 +103,8 @@ const getFabricantes = async (req, res) => {
 
 // asigna componentes a un producto
 const addComponentes = async (req, res) => {
-    const idProducto = req.params.id
-    const producto = await Producto.findByPk(idProducto);
-    if (!producto) {
-        return res.status(404).json({ message: 'Producto no encontrado' });
-    }
+    const producto = req.modelo || await Producto.findByPk(req.params.id);
+
     const componentes = req.body;
     if (!Array.isArray(componentes)) {
         return res.status(500).json({ message: `se espera una lista de componentes` })
