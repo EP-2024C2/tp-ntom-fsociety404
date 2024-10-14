@@ -1,0 +1,71 @@
+[{
+    "nombre": "Fabricante1",
+    "direccion": "direccion1",
+    "pathImgPerfil": "http://example.com/img/fabricante-1",
+    "numeroContacto": 112233445566
+},{
+    "nombre": "Fabricante2",
+    "direccion": "direccion2",
+    "pathImgPerfil": "http://example.com/img/fabricante-2",
+    "numeroContacto": 112233445566
+},{
+    "nombre": "Fabricante3",
+    "direccion": "direccion3",
+    "pathImgPerfil": "http://example.com/img/fabricante-3",
+    "numeroContacto": 112233445566
+},{
+    "nombre": "Fabricante4",
+    "direccion": "direccion4",
+    "pathImgPerfil": "http://example.com/img/fabricante-4",
+    "numeroContacto": 112233445566
+}
+]
+
+
+[{
+    "nombre": "Componente1",
+    "descripcion" : "componente1 con descripcion2"
+},{
+    "nombre": "Componente2",
+    "descripcion" : "componente2 con descripcion2"
+},
+{
+    "nombre": "Componente3",
+    "descripcion" : "componente3 con descripcion3"
+},{
+    "nombre": "Componente4",
+    "descripcion" : "componente4 con descripcion4"
+}
+]
+
+
+[{
+    "nombre": "Producto1",
+    "descripcion" : "producto1 con descripcion1",
+    "precio": 1122,
+    "pathImg": "http://example.com/img/producto-1"
+},{
+    "nombre": "Producto2",
+    "descripcion" : "producto2 con descripcion2",
+    "precio": 1122,
+    "pathImg": "http://example.com/img/producto-2"
+},{
+    "nombre": "Producto3",
+    "descripcion" : "producto3 con descripcion3",
+    "precio": 1122,
+    "pathImg": "http://example.com/img/producto-3"
+},{
+    "nombre": "Producto4",
+    "descripcion" : "producto4 con descripcion4",
+    "precio": 1122,
+    "pathImg": "http://example.com/img/producto-4"
+},{
+    "nombre": "Producto5",
+    "descripcion" : "producto5 con descripcion5",
+    "precio": 1122,
+    "pathImg": "http://example.com/img/producto-5"
+}
+]
+
+
+[{"id": 1},{"id":3}]
