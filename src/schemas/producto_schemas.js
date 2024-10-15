@@ -14,7 +14,7 @@ const productoSchema = Joi.object().keys({
         "string.min": `El campo descripcion debe tener al menos {#limit} caracteres`,
         "string.max": `El campo descripcion debe tener como máximo {#limit} caracteres`,
         "string.empty": "El campo descripcion no puede ser vacío",
-        "string.pattern.base": "El campo solo debe contener letras, números, espacios y los caracteres ., ",
+        "string.pattern.base": "El campo descripcion solo debe contener letras, números, espacios y los caracteres ., ",
         "any.required": "El campo descripcion es requerido",
     }),
 	precio: Joi.number().required().messages({
@@ -22,8 +22,8 @@ const productoSchema = Joi.object().keys({
 		"any.required": "El campo precio es requerido"
 	}),
 	pathImg: Joi.string().required().uri().messages({
-		"string.uri": "El campo pathImgPerfil debe ser una URL válida",
-        "any.required": "El campo pathImgPerfil es requerido"
+		"string.uri": "El campo pathImg debe ser una URL válida",
+        "any.required": "El campo pathImg es requerido"
 	})
 });
 

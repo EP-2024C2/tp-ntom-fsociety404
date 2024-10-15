@@ -12,7 +12,7 @@ const componenteSchema = Joi.object().keys({
         "string.min": `El campo descripcion debe tener al menos {#limit} caracteres`,
         "string.max": `El campo descripcion debe tener como máximo {#limit} caracteres`,
         "string.empty": "El campo descripcion no puede ser vacío",
-        "string.pattern.base": "El campo solo debe contener letras, números, espacios y los caracteres ., ",
+        "string.pattern.base": "El campo descripcion solo debe contener letras, números, espacios y los caracteres ., ",
         "any.required": "El campo descripcion es requerido",
     }),
 });
