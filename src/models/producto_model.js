@@ -1,19 +1,26 @@
 'use strict';
 
-const { Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config')
 
-class Producto extends Model {}
+class Producto extends Model { }
 
 Producto.init({
-    nombre: DataTypes.STRING,
+    nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     descripcion: DataTypes.TEXT,
-    precio: DataTypes.FLOAT,
+    precio: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
     pathImg: DataTypes.STRING
-  }, {
+}, {
     sequelize,
     modelName: 'Producto',
-  });
+    timestamps: false
+});
 
 module.exports = Producto
 
