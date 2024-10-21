@@ -58,6 +58,18 @@ controller.updateProducto = updateProducto
 
 //borrar un producto en particular
 const deleteProducto = async (req, res) => {
+    const modelo = req.modelo || await Producto.findByPk(req.params.id);
+    const cantComponentesAsociados = await modelo.countComponentes()
+    if(cantComponentesAsociados > 0) {
+        res.status(400).json({ message: `no se puede eliminar un producto si tiene componentes asociados` });
+        return
+    }
+    const cantFabricantesAsociados = await modelo.countFabricantes()
+    if(cantFabricantesAsociados > 0) {
+        res.status(400).json({ message: `no se puede eliminar un producto si tiene fabricantes asociados` });
+        return
+    }
+
     try {
         await Producto.destroy({ where: { id: req.params.id } });
         res.status(200).json({ message: 'OK' });
@@ -104,10 +116,25 @@ const getAllFabricantesDeProducto = async (req, res) => {
 }
 controller.getAllFabricantesDeProducto = getAllFabricantesDeProducto
 
+// elimina la asociacion de fabricantes de un producto
+controller.deleteAllFabricatesDeProducto = async (req, res) => {
+    const modelo = req.modelo || await Producto.findByPk(req.params.id);
+    try {
+        await modelo.setFabricantes([])
+    } catch(e) {
+        res.status(500).json({ error: `error al desasociar fabricantes de un producto: ${e}` })
+        return
+    }
+
+    res.status(200).json({ message: 'OK' });
+}
+
+
+
 // asigna componentes a un producto
 const associateComponenteAProductoById = async (req, res) => {
     const producto = req.modelo || await Producto.findByPk(req.params.id);
-    
+
     const componentes = req.body;
     if (!Array.isArray(componentes)) {
         return res.status(500).json({ error: `se espera una lista de componentes` })
@@ -142,5 +169,20 @@ const getAllComponentesDeProducto = async (req, res) => {
     res.status(200).json(producto);
 }
 controller.getAllComponentesDeProducto = getAllComponentesDeProducto
+
+// elimina la asociacion de componentes de un producto
+controller.deleteAllComponentesDeProducto = async (req, res) => {
+    const modelo = req.modelo || await Producto.findByPk(req.params.id);
+    try {
+        await modelo.setComponentes([])
+    } catch(e) {
+        res.status(500).json({ error: `error al desasociar componentes de un producto: ${e}` })
+        return
+    }
+
+
+    res.status(200).json({ message: 'OK' });
+}
+
 
 module.exports = controller

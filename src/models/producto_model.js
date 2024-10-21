@@ -15,7 +15,10 @@ Producto.init({
         type: DataTypes.FLOAT,
         allowNull: false
     },
-    pathImg: DataTypes.STRING
+    pathImg: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }
 }, {
     sequelize,
     modelName: 'Producto',

@@ -12,7 +12,9 @@ route.put('/:id', validateSchema(productoSchema), existsById(Producto), Producto
 route.delete('/:id', existsById(Producto), ProductoControllers.deleteProducto)
 route.post('/:id/fabricantes', existsById(Producto), ProductoControllers.associateFabricanteAProductoById)
 route.get('/:id/fabricantes', existsById(Producto), ProductoControllers.getAllFabricantesDeProducto)
+route.delete('/:id/fabricantes', existsById(Producto), ProductoControllers.deleteAllFabricatesDeProducto)
 route.post('/:id/componentes', existsById(Producto), ProductoControllers.associateComponenteAProductoById)
 route.get('/:id/componentes', existsById(Producto), ProductoControllers.getAllComponentesDeProducto)
+route.delete('/:id/componentes', existsById(Producto), ProductoControllers.deleteAllComponentesDeProducto)
 
 module.exports = route

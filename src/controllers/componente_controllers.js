@@ -54,6 +54,12 @@ controller.updateComponente = updateComponente
 
 //borrar un componente en particular
 const deleteComponente = async (req, res) => {
+    const componente = req.modelo || await Componente.findByPk(req.params.id);
+    const cantProductosAsociados = await componente.countProductos()
+    if(cantProductosAsociados > 0) {
+        res.status(400).json({ message: `no se puede eliminar un componente si tiene productos asociados` });
+        return
+    }
     try {
         await Componente.destroy({ where: { id: req.params.id } });
         res.status(200).json({ message: 'OK' });
