@@ -27,14 +27,14 @@
     "username": "un_usuario",
     "password": "una_contraseña",
     "database": "nombre_bd",
-    "host": "127.0.0.1",
+    "host": "ip/hostname de bd",
     "dialect": "mysql"
   },
   "production": {
-    "database": "edp",
+    "database": "nombre_bd",
     "username": "usuario",
     "password": "contraseña",
-    "host": "127.0.0.1",
+    "host": "ip/hostname de bd",
     "dialect": "postgres"
   }
 }
