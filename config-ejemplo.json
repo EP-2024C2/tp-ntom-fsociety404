@@ -5,16 +5,16 @@
 },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "password",
+    "database": "edp",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
+    "database": "edp",
+    "username": "postgres",
+    "password": "password",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
 }
