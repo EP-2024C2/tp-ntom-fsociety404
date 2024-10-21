@@ -16,21 +16,55 @@
 
 2. Instalar dependencias : `npm install`
 
-3. Crear una base de datos en sqlite
-
-4. Create a .env file in the root directory and add the following:
-
+3. Crear un archivo `config.json` en la carpeta raiz del proyecto con la configuracion de la BD:
+```json
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "./data/db.sqlite"
+},
+  "test": {
+    "username": "un_usuario",
+    "password": "una_contraseña",
+    "database": "nombre_bd",
+    "host": "ip/hostname de bd",
+    "dialect": "mysql"
+  },
+  "production": {
+    "database": "nombre_bd",
+    "username": "usuario",
+    "password": "contraseña",
+    "host": "ip/hostname de bd",
+    "dialect": "postgres"
+  }
+}
 ```
-DB_USER=your_username
-DB_PASSWORD=your_password
-DB_HOST=your_host
-DB_PORT=your_port
-DB_DATABASE=your_database
-```
+o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaciones con los datos de conexión 
 
-or just copy the .env.template file and fill it with your data.
+4. Ejecutar servidor: `npm start`
 
-5. Ejecutar servidor: `npm run dev`
+
+### Entorno de Desarrollo
+### prerequisitos
+* docker
+* docker compose
+
+#### con instancia de BD de prueba `mysql`:
+1. crear archivo `.env`
+2. agregar la linea `COMPOSE_FILE=docker-compose-mysql.yml`
+3. configurar datos de conexión en `config.json`
+3. iniciar instancia de bd: `docker compose up -d`
+4. iniciar servidor en modo desarrollo: `npm run dev`
+ 
+#### con instancia de BD de prueba `postgres`:
+1. crear archivo `.env`
+2. agregar la linea `COMPOSE_FILE=docker-compose-psql.yml`
+3. configurar datos de conexión en `config.json`
+3. iniciar instancia de bd: `docker compose up -d`
+4. iniciar servidor en modo desarrollo: `npm run dev`
+
+
+
 
 ## Endpoints
 
@@ -59,39 +93,53 @@ or just copy the .env.template file and fill it with your data.
 | GET    | /componentes/:id/productos | 200, 404      | Obtener todos los productos de un componente          |
 
 ## Modelo de API
+![DER](DER.png)
 
-- aca va la imagen
 
 ## Estructura del Proyecto
 
 ```bash
 .
+├── DER.png                             #    
+├── README.md                           # este archivo
+├── config-ejemplo.json                 # configuración de bd de ejemplo
+├── config.json                         # configuración de bd
+├── data                                # carpeta de datos
+│   └── db.sqlite
+├── db.sqlite.png
+├── docker-compose-mysql.yml            # configuración docker para bd mysql
+├── docker-compose-psql.yml             # configuración docker para bd postgres
+├── package-lock.json
 ├── package.json
 └── src
-    ├── app.js
-    ├── config
-    │   ├── config.json
-    │   └── index.js
-    ├── controllers
+    ├── app.js                          # punto de ingreso a la aplicación 
+    ├── config                          # modulo para carga de confriguración
+    │   └── index.js                    
+    ├── controllers                     # controladores
     │   ├── componente_controllers.js
     │   ├── fabricante_controllers.js
-    │   └── index.js
+    │   ├── index.js
+    │   └── producto_controllers.js
     ├── middlewares
-    │   └── ?????????
-    ├── models
+    │   └── middleware.js
+    ├── migrations
+    │   ├── 20241006193906-create-fabricante.js
+    │   ├── 20241006194138-create-componente.js
+    │   └── 20241006194256-create-producto.js
+    ├── models                          # modelos
     │   ├── componente_model.js
     │   ├── fabricante_model.js
-    │   ├── producto_model.js
-    │   └── index.js
-    ├── routes
+    │   ├── index.js
+    │   └── producto_model.js
+    ├── routes                          # rutas
     │   ├── componente_routes.js
     │   ├── fabricante_routes.js
-    │   └── index.js
-    ├── schemas
-    │   ├── componente_schemas.js
-    │   ├── fabricante_schemas.js
-    │   ├── producto_schemas.js
-    │   └── schemas_comunes.js
-    └── seeders
-        └── ?????????
+    │   ├── index.js
+    │   └── producto_routes.js
+    └── schemas                         # esquemas de validación
+        ├── componente_schemas.js
+        ├── fabricante_schemas.js
+        ├── producto_schemas.js
+        └── schemas_comunes.js
 ```
+ 
