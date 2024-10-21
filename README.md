@@ -93,7 +93,7 @@ o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaci
 | GET    | /componentes/:id/productos | 200, 404      | Obtener todos los productos de un componente          |
 
 ## Modelo de API
-
+![DER](DER.png)
 
 
 ## Estructura del Proyecto
