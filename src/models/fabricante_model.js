@@ -13,11 +13,11 @@ Fabricante.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    pathImgPerfil: {
+    numeroContacto: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    numeroContacto: DataTypes.STRING
+    pathImgPerfil: DataTypes.STRING
 }, {
     sequelize,
     modelName: 'Fabricante',
