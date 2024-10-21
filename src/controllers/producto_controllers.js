@@ -32,7 +32,7 @@ const addProducto = async (req, res) => {
         res.status(201).send(resultado)
 
     } catch (error) {
-        res.status(500).json({ message: `error al intentar crear Producto: "${error}"` })
+        res.status(500).json({ error: `error al intentar crear Producto: "${error}"` })
     }
 }
 controller.addProducto = addProducto
@@ -73,12 +73,12 @@ const associateFabricanteAProductoById = async (req, res) => {
 
     const fabricantes = req.body;
     if (!Array.isArray(fabricantes)) {
-        return res.status(500).json({ message: `se espera una lista de fabricantes` })
+        return res.status(500).json({ error: `se espera una lista de fabricantes` })
     }
     for (const i in fabricantes) {
         const fabricante = await Fabricante.findByPk(fabricantes[i].id)
         if (!fabricante) {
-            return res.status(404).json({ message: `no se encontró un fabricante con el id '${fabricantes[i].id}'` });
+            return res.status(404).json({ error: `no se encontró un fabricante con el id '${fabricantes[i].id}'` });
         }
         fabricantes[i] = fabricante
     }
@@ -87,7 +87,7 @@ const associateFabricanteAProductoById = async (req, res) => {
     } catch (err) {
         const msg = `error al asignar fabricantes a un producto: '${err}'`
         console.error(msg)
-        return res.status(500).json({ message: msg })
+        return res.status(500).json({ error: msg })
     }
     res.status(200).json({ message: 'OK' });
 }
@@ -110,12 +110,12 @@ const associateComponenteAProductoById = async (req, res) => {
     
     const componentes = req.body;
     if (!Array.isArray(componentes)) {
-        return res.status(500).json({ message: `se espera una lista de componentes` })
+        return res.status(500).json({ error: `se espera una lista de componentes` })
     }
     for (const i in componentes) {
         const componente = await Componente.findByPk(componentes[i].id)
         if (!componente) {
-            return res.status(404).json({ message: `no se encontró un componente con el id '${componentes[i].id}'` });
+            return res.status(404).json({ error: `no se encontró un componente con el id '${componentes[i].id}'` });
         }
         componentes[i] = componente
     }
@@ -125,7 +125,7 @@ const associateComponenteAProductoById = async (req, res) => {
     } catch (err) {
         const msg = `error al asignar componentes a un producto: '${err}'`
         console.error(msg)
-        return res.status(500).json({ message: msg })
+        return res.status(500).json({ error: msg })
     }
 
     res.status(200).json({ message: 'OK' });

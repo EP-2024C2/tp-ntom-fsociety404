@@ -30,7 +30,7 @@ const addComponente = async (req, res) => {
         res.status(201).send(resultado)
 
     } catch (error) {
-        res.status(500).json({ message : `error al intentar crear Componente: "${error}"` })
+        res.status(500).json({ error : `error al intentar crear Componente: "${error}"` })
     }
 }
 controller.addComponente = addComponente

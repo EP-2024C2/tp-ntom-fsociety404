@@ -7,7 +7,8 @@ const componenteSchema = Joi.object().keys({
         "string.empty": "El campo nombre no puede ser vacio",
         "any.required": "El campo nombre es requerido",
     }),
-    descripcion: Joi.string().messages({
+    descripcion: Joi.string().max(120).messages({
+        "string.max": `El campo descripcion debe tener como máximo {#limit} caracteres`,
     }),
 });
 
