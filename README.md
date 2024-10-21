@@ -69,29 +69,31 @@ o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaci
 
 ## Endpoints
 
-| Verbo  | Recurso                    | Status code   | Descripción                                           |
-| ------ | -------------------------- | ------------- | ----------------------------------------------------- |
-| GET    | /productos                 | 200           | Obtener todos los productos                           |
-| GET    | /productos/:id             | 200, 404      | Obtener un producto en particular                     |
-| POST   | /productos                 | 201, 400      | Crear un producto                                     |
-| PUT    | /productos/:id             | 200, 404      | Modificar los datos de un producto en particular      |
-| DELETE | /productos/:id             | 200, 404, 500 | Borrar un producto en particular                      |
-| POST   | /productos/:id/fabricantes | 201, 404, 400 | Crear la asociación de producto con 1 o N fabricantes |
-| GET    | /productos/:id/fabricantes | 200, 404      | Obtener todos los fabricantes de un producto          |
-| POST   | /productos/:id/componentes | 201, 404, 400 | Crear la asociación de producto con 1 o N componentes |
-| GET    | /productos/:id/componentes | 200, 404      | Obtener todos los componentes de un producto          |
-| GET    | /fabricantes               | 200           | Obtener todos los fabricantes                         |
-| GET    | /fabricantes/:id           | 200, 404      | Obtener un fabricante en particular                   |
-| POST   | /fabricantes               | 201, 400      | Crear un fabricante                                   |
-| PUT    | /fabricantes/:id           | 200, 404      | Modificar los datos de un fabricante en particular    |
-| DELETE | /fabricantes/:id           | 200, 404, 500 | Borrar un fabricante en particular                    |
-| GET    | /fabricantes/:id/productos | 200, 404      | Obtener todos los productos de un fabricante          |
-| GET    | /componentes               | 200           | Obtener todos los componentes                         |
-| GET    | /componentes/:id           | 200, 404      | Obtener un componente en particular                   |
-| POST   | /componentes               | 201, 400      | Crear un componente                                   |
-| PUT    | /componentes/:id           | 200, 404      | Modificar los datos de un componente en particular    |
-| DELETE | /componentes/:id           | 200, 404, 500 | Borrar un componente en particular                    |
-| GET    | /componentes/:id/productos | 200, 404      | Obtener todos los productos de un componente          |
+| Verbo  | Recurso                    | Status code        | Descripción                                                 |
+| ------ | -------------------------- | ------------------ | ----------------------------------------------------------- |
+| GET    | /productos                 | 200                | Obtener todos los productos                                 |
+| GET    | /productos/:id             | 200, 404           | Obtener un producto en particular                           |
+| POST   | /productos                 | 201, 400           | Crear un producto                                           |
+| PUT    | /productos/:id             | 200, 404           | Modificar los datos de un producto en particular            |
+| DELETE | /productos/:id             | 200, 404, 500, 400 | Borrar un producto en particular                            |
+| POST   | /productos/:id/fabricantes | 201, 404, 400      | Crear la asociación de producto con 1 o N fabricantes       |
+| GET    | /productos/:id/fabricantes | 200, 404           | Obtener todos los fabricantes de un producto                |
+| DELETE | /productos/:id/fabricantes | 200, 404           | Eliminar la asociación todos los fabricantes de un producto |
+| POST   | /productos/:id/componentes | 201, 404, 400      | Crear la asociación de producto con 1 o N componentes       |
+| GET    | /productos/:id/componentes | 200, 404           | Obtener todos los componentes de un producto                |
+| DELETE | /productos/:id/componentes | 200, 404           | Eliminar la asociación todos los componentes de un producto |
+| GET    | /fabricantes               | 200                | Obtener todos los fabricantes                               |
+| GET    | /fabricantes/:id           | 200, 404           | Obtener un fabricante en particular                         |
+| POST   | /fabricantes               | 201, 400           | Crear un fabricante                                         |
+| PUT    | /fabricantes/:id           | 200, 404           | Modificar los datos de un fabricante en particular          |
+| DELETE | /fabricantes/:id           | 200, 404, 500, 400 | Borrar un fabricante en particular                          |
+| GET    | /fabricantes/:id/productos | 200, 404           | Obtener todos los productos de un fabricante                |
+| GET    | /componentes               | 200                | Obtener todos los componentes                               |
+| GET    | /componentes/:id           | 200, 404           | Obtener un componente en particular                         |
+| POST   | /componentes               | 201, 400           | Crear un componente                                         |
+| PUT    | /componentes/:id           | 200, 404           | Modificar los datos de un componente en particular          |
+| DELETE | /componentes/:id           | 200, 404, 500, 400 | Borrar un componente en particular                          |
+| GET    | /componentes/:id/productos | 200, 404           | Obtener todos los productos de un componente                |
 
 ## Modelo de API
 ![DER](DER.png)

@@ -17,7 +17,10 @@ Fabricante.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    pathImgPerfil: DataTypes.STRING
+    pathImgPerfil: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }
 }, {
     sequelize,
     modelName: 'Fabricante',

@@ -58,6 +58,13 @@ controller.updateFabricante = updateFabricante
 
 // permite eliminar un fabricante
 const deleteFabricante = async (req, res) => {
+    const fabricante = req.modelo || await Fabricante.findByPk(req.params.id);
+    const cantProductosAsociados = await fabricante.countProductos()
+    if(cantProductosAsociados > 0) {
+        res.status(400).json({ message: `no se puede eliminar un fabricante si tiene productos asociados` });
+        return
+    }
+
     try {
         await Fabricante.destroy({ where: { id: req.params.id } });
         res.status(200).json({ message: 'OK' });

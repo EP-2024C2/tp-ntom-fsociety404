@@ -10,7 +10,10 @@ Componente.init({
 		type: DataTypes.STRING,
 		allowNull: false
 	},
-	descripcion: DataTypes.TEXT
+	descripcion: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    }
 }, {
 	sequelize,
 	modelName: 'Componente',
