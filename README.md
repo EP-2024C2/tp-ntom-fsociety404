@@ -44,19 +44,20 @@ o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaci
 4. Ejecutar servidor: `npm start`
 
 
-### Entorno de Desarrollo
-### prerequisitos
+## Entorno de Desarrollo
+
+### Prerequisitos
 * docker
 * docker compose
 
-#### con instancia de BD de prueba `mysql`:
+#### Con instancia de BD de prueba `mysql`:
 1. crear archivo `.env`
 2. agregar la linea `COMPOSE_FILE=docker-compose-mysql.yml`
 3. configurar datos de conexión en `config.json`
 3. iniciar instancia de bd: `docker compose up -d`
 4. iniciar servidor en modo desarrollo: `npm run dev`
  
-#### con instancia de BD de prueba `postgres`:
+#### Con instancia de BD de prueba `postgres`:
 1. crear archivo `.env`
 2. agregar la linea `COMPOSE_FILE=docker-compose-psql.yml`
 3. configurar datos de conexión en `config.json`
@@ -106,7 +107,6 @@ o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaci
 ├── config.json                         # configuración de bd
 ├── data                                # carpeta de datos
 │   └── db.sqlite
-├── db.sqlite.png
 ├── docker-compose-mysql.yml            # configuración docker para bd mysql
 ├── docker-compose-psql.yml             # configuración docker para bd postgres
 ├── package-lock.json
@@ -139,7 +139,6 @@ o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaci
     └── schemas                         # esquemas de validación
         ├── componente_schemas.js
         ├── fabricante_schemas.js
-        ├── producto_schemas.js
-        └── schemas_comunes.js
+        └── producto_schemas.js
 ```
  
