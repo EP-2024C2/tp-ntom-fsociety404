@@ -1,7 +1,9 @@
-const {Sequelize} = require("sequelize")
-const process = require('process')
+const {Sequelize} = require("sequelize");
+const dotenv = require('dotenv');
+dotenv.config();
+const process = require('process');
 const configFile = process.env.CONFIG_FILE || __dirname + '/../../config.json'
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development' ;
 let config
 try {
     config = require(configFile);

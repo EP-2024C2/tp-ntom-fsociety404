@@ -64,6 +64,9 @@ o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaci
 3. iniciar instancia de bd: `docker compose up -d`
 4. iniciar servidor en modo desarrollo: `npm run dev`
 
+## Variables de entorno
+`COMPOSE_FILE`    archivo de docker compose a utilizar
+`NODE_ENV`        entorno de ejecucion para node(develoment,test,production)
 
 
 
