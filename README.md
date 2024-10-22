@@ -66,6 +66,7 @@ o copie el archivo `config-ejemplo.json` a `config.json` y realice las modifcaci
 
 ## Variables de entorno
 `COMPOSE_FILE`    archivo de docker compose a utilizar
+
 `NODE_ENV`        entorno de ejecucion para node(develoment,test,production)
 
 
