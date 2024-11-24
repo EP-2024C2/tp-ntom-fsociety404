@@ -17,8 +17,8 @@ const fabricanteSchema = Joi.object().keys({
         "number.integer": "El campo numeroContacto debe ser un número entero",
         "any.required": "El campo numeroContacto es requerido"
     }),
-    pathImgPerfil: Joi.string().uri().messages({
-        "string.uri": "El campo pathImgPerfil debe ser una URL válida",
+    pathImgPerfil: Joi.string().messages({
+        "string.empty": "se requiere una imagen",
     }),
 });
 
